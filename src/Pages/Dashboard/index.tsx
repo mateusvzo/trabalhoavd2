@@ -19,6 +19,7 @@ const Dashboard: React.FC = () => {
   const [professores, setProfessores] = useState<NewInFormData[]>([])
   //console.log(professores)
 
+
   useEffect(() => {
     async function loadData(): Promise<void> {
       const response = await api.get('/professores')
@@ -27,6 +28,7 @@ const Dashboard: React.FC = () => {
     }
     loadData();
   }, [])
+  
 
   let professorUnico = []
   professorUnico = Array.from(new Set (professores.map(prof => prof.professor)))

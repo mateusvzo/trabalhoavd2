@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface Op {
+  mostrar: boolean;
+}
 
 export const Container = styled.section`
   width: 100%;
@@ -16,6 +20,30 @@ export const Container = styled.section`
         transition: color 0.2s;
     }
 `;
+
+export const Opcoes = styled.div<Op>`
+  width: 100%;
+  visibility: hidden;
+  height: 0;
+
+  ${props =>
+    props.mostrar === true &&
+    css`
+      visibility: visible;
+      height: 10rem;
+    `}
+`;
+
+export const Form = styled.div`
+  form {
+    width: 100%;
+    input {
+      width: 100%;
+      margin-top: 0.2rem;
+    }
+  }
+`;
+
 export const Disciplinas = styled.div`
   ul li {
     padding: 20px;
@@ -23,3 +51,4 @@ export const Disciplinas = styled.div`
     flex-direction: column;
   }
 `;
+
